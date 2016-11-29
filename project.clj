@@ -1,4 +1,4 @@
-(defproject com.liaison/proletariat "0.1.0"
+(defproject com.liaison/proletariat "0.2.0"
   :description "Library of the Commons. A hard-working library of common utilities."
   :url "https://github.com/LiaisonTechnologies/proletariat"
 
@@ -17,6 +17,7 @@
   :dependencies [[aysylu/loom "0.6.0"]
                  [com.taoensso/encore "2.68.1"]
                  [com.taoensso/timbre "4.7.0"]
+                 [commons-codec/commons-codec "1.10"]
                  [im.chit/hara.event "2.3.7"]
                  [org.clojure/clojure "1.9.0-alpha14"]
                  [org.clojure/test.check "0.9.0"]])
