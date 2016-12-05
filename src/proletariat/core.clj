@@ -441,3 +441,18 @@
       (if (zip/branch? z)
         (recur (zip/next z))
         (recur (do (f z) (zip/next z)))))))
+
+(defn flip
+  "Returns a function with reversed arity of `f`"
+  [f]
+  (fn
+    ([] (f))
+    ([x] (f x))
+    ([x y] (f y x))
+    ([x y z] (f z y x))
+    ([a b c d] (f d c b a))
+    ([a b c d & rest]
+     (->> rest
+          (concat [a b c d])
+          reverse
+          (apply f)))))
