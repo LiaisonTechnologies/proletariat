@@ -120,6 +120,24 @@
   [m]
   (into {} (remove (comp nil? second) m)))
 
+(spec/fdef remove-nils
+  :args (spec/cat :m map?)
+  :ret (spec/nilable map?))
+
+(defn remove-nils
+  "Removes elements from a (possibly nested) map that have nil
+  values. Returns `nil` if all values in the map are `nil`
+  Src: http://stackoverflow.com/a/29363255"
+  [nm]
+  (clojure.walk/postwalk 
+   (fn [el]
+     (if (map? el)
+       (let [m (into {} (remove (comp nil? second) el))]
+         (when (seq m)
+           m))
+       el))
+   nm))
+
 (spec/fdef get-host-address
   :args empty?
   :ret string?)
