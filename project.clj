@@ -1,4 +1,4 @@
-(defproject com.liaison/proletariat "0.3.0"
+(defproject com.liaison/proletariat "0.4.0"
   :description "Library of the Commons. A hard-working library of common utilities."
   :url "https://github.com/LiaisonTechnologies/proletariat"
 

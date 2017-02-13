@@ -30,3 +30,4 @@ target/
 Vagrantfile
 **.tested
 **.installed
+**/*.DS_Store
