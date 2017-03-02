@@ -13,7 +13,8 @@
             [clojure.test.check.generators :as cgen])
   (:import [java.util UUID]
            [java.time Instant]
-           [java.net InetAddress]))
+           [java.net InetAddress]
+           (clojure.lang IFn)))
 
 (spec/fdef leap-year?
   :args (spec/cat :year pos-int?)
@@ -456,3 +457,33 @@
           (concat [a b c d])
           reverse
           (apply f)))))
+
+(spec/fdef sreduce
+  :args (spec/cat :f #(instance? IFn %)
+                  :acc any?
+                  :state any?
+                  :coll coll?)
+  :ret any?)
+
+(defn sreduce
+  "Works like reduce, but also allows functional state to be passed
+  and returned between iterations.  `f` should be a function of three
+  arguments: the accumulator, the next value, and the state.  `acc`
+  is an accumulator that will be the final return value.  `state` is
+  the starting state of the reduction.  `coll` is the collection to
+  iterate."
+  [f acc state coll]
+  (if (empty? coll)
+    acc
+    (let [[new-acc new-state] (f acc (first coll) state)]
+      (recur f new-acc new-state (rest coll)))))
+
+(spec/fdef conjv
+  :args (spec/cat :coll coll?
+                  :x    any?)
+  :ret vector?)
+
+(defn conjv
+  "Add element `x` to a vectorized version of `coll` and return the new vector"
+  [coll x]
+  (conj (vec coll) x))
