@@ -487,3 +487,17 @@
   "Add element `x` to a vectorized version of `coll` and return the new vector"
   [coll x]
   (conj (vec coll) x))
+
+(spec/fdef conj-when
+  :args (spec/cat :coll coll?
+                  :f    #(instance? IFn %)
+                  :x    any?)
+  :ret coll?)
+
+(defn conj-when
+  "Conjoins `x` to `coll` per the predicate `f`, otherwise returns `coll`
+  unchanged."
+  [coll f x]
+  (if (f x)
+    (conj coll x)
+    coll))
