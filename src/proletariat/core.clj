@@ -132,9 +132,9 @@
 
 (spec/fdef deep-merge
   :args
-  (spec/cat :maps (spec/* map?))
+  (spec/cat :maps (spec/* any?))
   :ret
-  map?)
+  (spec/nilable map?))
 
 (defn deep-merge
   "Performs a deep merge on `maps`, resolves conflicts by choosing the last
@@ -150,7 +150,7 @@
   (spec/cat :func (spec/fspec :args (spec/cat :m1 any? :m2 any?) :ret any?)
             :maps (spec/cat :maps (spec/* any?)))
   :ret
-  map?)
+  (spec/nilable map?))
 
 (defn deep-merge-with
   "Performs a deep merge on `maps` using `func` to resolve conflicts."
