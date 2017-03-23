@@ -188,6 +188,22 @@
     {}
     m))
 
+(defmacro do-until
+  "Executes the body until `test` returns true."
+  [test & body]
+  `(loop []
+     ~@body
+     (when (not ~test)
+       (recur))))
+
+(defmacro do-while
+  "Executes the while `test` returns true."
+  [test & body]
+  `(loop []
+     ~@body
+     (when ~test
+       (recur))))
+
 (defn slurp-resource
   "Works like `clojure.core/slurp` except it resolves the resource file
   descriptor `fd` relative to the classpath instead of the file system."
