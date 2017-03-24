@@ -11,13 +11,13 @@
                          :snapshots false
                          :update    :always}]]
 
-  :profiles {:uberjar
-             {:source-paths ["src"]}}
+  :profiles {:dev {:plugins [[lein-ancient "0.6.10"]]}
+             :uberjar {:source-paths ["src"]}}
 
-  :dependencies [[aysylu/loom "0.6.0"]
-                 [com.taoensso/encore "2.68.1"]
-                 [com.taoensso/timbre "4.7.0"]
+  :dependencies [[aysylu/loom "1.0.0"]
+                 [com.taoensso/encore "2.90.1"]
+                 [com.taoensso/timbre "4.8.0"]
                  [commons-codec/commons-codec "1.10"]
-                 [im.chit/hara.event "2.3.7"]
-                 [org.clojure/clojure "1.9.0-alpha14"]
+                 [im.chit/hara.event "2.5.2"]
+                 [org.clojure/clojure "1.9.0-alpha15"]
                  [org.clojure/test.check "0.9.0"]])
