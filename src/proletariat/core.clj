@@ -14,7 +14,17 @@
   (:import [java.util UUID]
            [java.time Instant]
            [java.net InetAddress]
-           (clojure.lang IFn)))
+           [clojure.lang IFn]))
+
+(spec/fdef chars?
+  :args (spec/cat :x any?)
+  :ret boolean?)
+
+(defn chars?
+  "Return true if x is a char array"
+  [x] (if (nil? x)
+        false
+        (-> x class .getComponentType (= Character/TYPE))))
 
 (spec/fdef leap-year?
   :args (spec/cat :year pos-int?)
@@ -132,9 +142,9 @@
 
 (spec/fdef deep-merge
   :args
-  (spec/cat :maps (spec/* map?))
+  (spec/cat :maps (spec/* any?))
   :ret
-  map?)
+  (spec/nilable map?))
 
 (defn deep-merge
   "Performs a deep merge on `maps`, resolves conflicts by choosing the last
@@ -150,7 +160,7 @@
   (spec/cat :func (spec/fspec :args (spec/cat :m1 any? :m2 any?) :ret any?)
             :maps (spec/cat :maps (spec/* any?)))
   :ret
-  map?)
+  (spec/nilable map?))
 
 (defn deep-merge-with
   "Performs a deep merge on `maps` using `func` to resolve conflicts."
@@ -159,6 +169,40 @@
     (if (every? map? maps)
       (apply merge-with par-func maps)
       (apply func maps))))
+
+(spec/fdef flatten-map
+  :args (spec/cat :m any?)
+  :ret (spec/nilable map?))
+
+(defn flatten-map
+  "Takes a map, possibly nested, and 'flattens' it by removing any nesting and
+  placing all keys in the root map. Any keys that refer to nested maps will be
+  removed. Duplicate keys will be overwritten based on the order of reduce,
+  where later keys will overwrite earlier keys."
+  [m]
+  (reduce-kv
+    (fn [acc k v]
+      (if (map? v)
+        (merge acc (flatten-map v))
+        (assoc acc k v)))
+    {}
+    m))
+
+(defmacro do-until
+  "Executes the body until `test` returns true."
+  [test & body]
+  `(loop []
+     ~@body
+     (when (not ~test)
+       (recur))))
+
+(defmacro do-while
+  "Executes the while `test` returns true."
+  [test & body]
+  `(loop []
+     ~@body
+     (when ~test
+       (recur))))
 
 (defn slurp-resource
   "Works like `clojure.core/slurp` except it resolves the resource file
