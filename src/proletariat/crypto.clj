@@ -1,6 +1,6 @@
 (ns proletariat.crypto
   "Opinionated cryptographic functions library"
-  (:require [clojure.spec :as spec])
+  (:require [clojure.spec.alpha :as spec])
   (:import [java.nio.charset Charset]
            [javax.crypto KeyGenerator Cipher]
            [javax.crypto.spec SecretKeySpec]

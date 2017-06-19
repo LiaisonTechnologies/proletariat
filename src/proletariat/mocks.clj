@@ -1,7 +1,7 @@
 (ns proletariat.mocks
   "Utilties for mocking parts of a program for testing different scenarios.
   Should *only* be used in unit tests as we are mucking about under the hood."
-  (:require [clojure.spec :as spec])
+  (:require [clojure.spec.alpha :as spec])
   (:import [clojure.lang MultiFn]))
 
 (defn reset-methods
