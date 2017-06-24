@@ -21,10 +21,18 @@
   :ret boolean?)
 
 (defn chars?
-  "Return true if x is a char array"
-  [x] (if (nil? x)
-        false
-        (-> x class .getComponentType (= Character/TYPE))))
+  "Returns true if `x` is an array of char's"
+  [x]
+  (instance? (Class/forName "[C") x))
+
+(spec/fdef chars?
+  :args (spec/cat :x any?)
+  :ret boolean?)
+
+(defn characters?
+  "Returns true if `x` is an array of Character's"
+  [x]
+  (instance? (Class/forName "[Ljava.lang.Character;") x))
 
 (spec/fdef leap-year?
   :args (spec/cat :year pos-int?)

@@ -15,6 +15,7 @@
              :uberjar {:source-paths ["src"]}}
 
   :dependencies [[aero "1.1.1"]
+                 [aleph "0.4.3"]
                  [aysylu/loom "1.0.0" :exclusions [tailrecursion/cljs-priority-map]]
                  [commons-codec/commons-codec "1.10"]
                  [im.chit/hara.event "2.5.2"]

@@ -1,6 +1,7 @@
 (ns proletariat.config
   (:require [aero.core :as aero]
             [clojure.string :as string]
+            [proletariat.core :as core]
             [proletariat.crypto :as crypto]
             [clojure.tools.logging :as log]
             [clojure.java.io :as io]))
@@ -11,10 +12,13 @@
   [_ _ [k data]]
   (aero/deferred
     (try
-      (-> k
-          slurp
-          string/trim-newline
-          (crypto/decrypt data))
+      (let [file-resource (io/file k)
+            contents      (if (.exists file-resource)
+                            (slurp file-resource)
+                            (core/slurp-resource k))]
+        (-> contents
+            string/trim-newline
+            (crypto/decrypt data)))
       (catch Exception e
         (when (not *silent*)
           (log/error e "Failed to parse encrypted configuration")
