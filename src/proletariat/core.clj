@@ -2,13 +2,13 @@
   "Library of the Commons.  A hard-working library of common utilities."
   (:require [clojure.instant :as instant]
             [clojure.edn :as edn]
-            [clojure.spec :as spec]
+            [clojure.spec.alpha :as spec]
             [clojure.string :as string]
             [clojure.java.io :as io]
             [clojure.java.shell :as shell]
+            [clojure.tools.logging :as log]
             [clojure.zip :as zip]
             [hara.event :as event]
-            [taoensso.timbre :as log]
             [clojure.test.check.rose-tree :as rose]
             [clojure.test.check.generators :as cgen])
   (:import [java.util UUID]
@@ -21,10 +21,18 @@
   :ret boolean?)
 
 (defn chars?
-  "Return true if x is a char array"
-  [x] (if (nil? x)
-        false
-        (-> x class .getComponentType (= Character/TYPE))))
+  "Returns true if `x` is an array of char's"
+  [x]
+  (instance? (Class/forName "[C") x))
+
+(spec/fdef chars?
+  :args (spec/cat :x any?)
+  :ret boolean?)
+
+(defn characters?
+  "Returns true if `x` is an array of Character's"
+  [x]
+  (instance? (Class/forName "[Ljava.lang.Character;") x))
 
 (spec/fdef leap-year?
   :args (spec/cat :year pos-int?)
