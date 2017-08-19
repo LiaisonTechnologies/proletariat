@@ -2,15 +2,6 @@
   :description "Library of the Commons. A hard-working library of common utilities."
   :url "https://github.com/LiaisonTechnologies/proletariat"
 
-  :repositories ^:replace
-  [["liaison-d2-public" {:url       "http://10.10.20.53:8081/nexus/repository/maven-public/"
-                         :snapshots true
-                         :update    :always}]
-
-   ["MapR"              {:url       "http://repository.mapr.com/maven/"
-                         :snapshots false
-                         :update    :always}]]
-
   :profiles {:dev {:plugins [[lein-ancient "0.6.10"]]}
              :uberjar {:source-paths ["src"]}}
 
