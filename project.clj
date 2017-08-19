@@ -12,4 +12,10 @@
                  [im.chit/hara.event "2.5.2"]
                  [org.clojure/clojure "1.9.0-alpha17"]
                  [org.clojure/test.check "0.9.0"]
-                 [org.clojure/tools.logging "0.4.0"]])
+                 [org.clojure/tools.logging "0.4.0"]]
+
+  :plugins [[lein-codox "0.10.3"]]
+  :codox
+  {:output-path "docs"
+   :metadata {:doc/format :markdown}
+   :source-uri "https://github.com/LiaisonTechnologies/proletariat/blob/{version}/{filepath}/#L{line}"})
