@@ -1,12 +1,12 @@
 # Proletariat
 
+ [![Build Status](https://travis-ci.org/LiaisonTechnologies/proletariat.svg?branch=master)](https://travis-ci.org/LiaisonTechnologies/proletariat)
+
 Library of the Commons.
 
 A hard-working library of common utilities.
 
-
 ![Proletariat](docs/proletariat.jpg "workers unite!")
-
 
 ## Add Dependency
 
