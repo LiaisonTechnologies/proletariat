@@ -5,3 +5,10 @@ jdk:
 
 notifications:
   email: false
+
+script:
+  - lein test
+  - lein codox
+
+deploy:
+  - local_dir: docs
