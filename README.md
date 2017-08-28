@@ -1,6 +1,6 @@
 # Proletariat
 
-Library of the Commons. 
+Library of the Commons.
 
 A hard-working library of common utilities.
 
@@ -10,18 +10,16 @@ A hard-working library of common utilities.
 
 ## Add Dependency
 
-Ensure the internal Liaison Nexus is listed as a Maven Repository in your build file:
-
-> http://10.10.20.53:8081/nexus/repository/maven-public/
-
-Then add the dependency using the code below that fits your build framework:
+Add the dependency using the code below that fits your build framework:
 
 Leiningen
+
 ```clojure
 [com.liaison/proletariat "0.4.0"]
 ```
 
 Maven
+
 ```xml
 <dependency>
     <groupId>com.liaison</groupId>
@@ -31,6 +29,7 @@ Maven
 ```
 
 Gradle
+
 ```groovy
 compile group: 'com.liaison', name: 'proletariat', version: '0.4.0'
 ```
