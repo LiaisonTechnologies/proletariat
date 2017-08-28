@@ -1,0 +1,14 @@
+language: clojure
+
+jdk:
+  - oraclejdk8
+
+notifications:
+  email: false
+
+script:
+  - lein test
+  - lein codox
+
+deploy:
+  - local_dir: docs

@@ -120,6 +120,24 @@
   [m]
   (into {} (remove (comp nil? second) m)))
 
+(spec/fdef remove-nils
+  :args (spec/cat :m map?)
+  :ret (spec/nilable map?))
+
+(defn remove-nils
+  "Removes elements from a (possibly nested) map that have nil
+  values. Returns `nil` if all values in the map are `nil`
+  Src: http://stackoverflow.com/a/29363255"
+  [nm]
+  (clojure.walk/postwalk
+   (fn [el]
+     (if (map? el)
+       (let [m (into {} (remove (comp nil? second) el))]
+         (when (seq m)
+           m))
+       el))
+   nm))
+
 (spec/fdef get-host-address
   :args empty?
   :ret string?)
@@ -319,6 +337,7 @@
   retry `n` times (making total executions `n + 1` times).  If all retries are
   exhausted, the final exception is thrown.
   "
+  {:style/indent 1}
   [n & body]
   `(retry* ~n (fn [] ~@body)))
 
@@ -331,6 +350,7 @@
   exception is thrown.  Can throw InterruptedExcpetion if the processing thread
   is interupted during a backoff sleep.
   "
+  {:style/indent 2}
   [n b & body]
   `(retry* ~n (fn [] ~@body) (fn [r# _#] (Thread/sleep (* ~b r#)))))
 
@@ -435,6 +455,7 @@
   allows users to leverage all of Hara Event's utilities for managing
   Exceptions via conditional restarts (eg: using `on`/`continue` to provide
   a default in the event of an exception)"
+  {:style/indent [1]}
   [seq-exprs & body]
   `(doall
      (for
