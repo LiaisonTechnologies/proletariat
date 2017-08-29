@@ -1,8 +1,9 @@
 (defproject com.liaison/proletariat "0.7.1"
   :description "Library of the Commons. A hard-working library of common utilities."
   :url "https://github.com/LiaisonTechnologies/proletariat"
-
-  :profiles {:dev {:plugins [[lein-ancient "0.6.10"]]}
+  :license {:name "Eclipse Public License"
+            :url  "http://www.eclipse.org/legal/epl-v10.html"}
+  :profiles {:dev     {:plugins [[lein-ancient "0.6.10"]]}
              :uberjar {:source-paths ["src"]}}
 
   :dependencies [[aero "1.1.1"]
@@ -17,5 +18,5 @@
   :plugins [[lein-codox "0.10.3"]]
   :codox
   {:output-path "docs"
-   :metadata {:doc/format :markdown}
-   :source-uri "https://github.com/LiaisonTechnologies/proletariat/blob/{version}/{filepath}/#L{line}"})
+   :metadata    {:doc/format :markdown}
+   :source-uri  "https://github.com/LiaisonTechnologies/proletariat/blob/{version}/{filepath}/#L{line}"})

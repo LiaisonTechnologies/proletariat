@@ -1,6 +1,6 @@
 # Proletariat
 
- [![Build Status](https://travis-ci.org/LiaisonTechnologies/proletariat.svg?branch=master)](https://travis-ci.org/LiaisonTechnologies/proletariat)
+> [![Build Status](https://travis-ci.org/LiaisonTechnologies/proletariat.svg?branch=master)](https://travis-ci.org/LiaisonTechnologies/proletariat) | [API Docs](https://liaisontechnologies.github.io/proletariat)
 
 Library of the Commons.
 
@@ -36,4 +36,21 @@ compile group: 'com.liaison', name: 'proletariat', version: '0.4.0'
 
 ## User Guide
 
-// TODO
+Proletariat relies on [spec](https://clojure.org/guides/spec) so it will pull in
+the latest alpha build of Clojure. The good part is that the library is almost
+entirely spec'ed, which is nice. The bad part is that you pull in an alpha
+version of Clojure. Luckily Clojure is really good about being
+backward-compatible, so you shouldn't run into any major issues.
+
+This library is being actively developed with new features and functionality, so
+do check out the [API docs](https://liaisontechnologies.github.io/proletariat)
+for an overview of what it offers.
+
+If you find any errors or are confused about something, open an issue on GitHub
+and we'll try to help clear things up.
+
+## License
+
+Copyright © 2017 Liaison Technologies
+
+Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
