@@ -11,4 +11,8 @@ script:
   - lein codox
 
 deploy:
-  - local_dir: docs
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  on:
+    branch: master
