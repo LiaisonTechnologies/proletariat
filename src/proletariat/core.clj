@@ -574,3 +574,8 @@
   (if (f x)
     (conj coll x)
     coll))
+
+(defn bytes->string
+  "Convert a byte array to string."
+  [#^bytes byte-array]
+  (String. byte-array))
