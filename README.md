@@ -15,7 +15,7 @@ Add the dependency using the code below that fits your build framework:
 Leiningen
 
 ```clojure
-[com.liaison/proletariat "0.7.1"]
+[com.liaison/proletariat "0.7.2"]
 ```
 
 Maven
@@ -24,14 +24,14 @@ Maven
 <dependency>
     <groupId>com.liaison</groupId>
     <artifactId>proletariat</artifactId>
-    <version>0.7.1</version>
+    <version>0.7.2</version>
 </dependency>
 ```
 
 Gradle
 
 ```groovy
-compile group: 'com.liaison', name: 'proletariat', version: '0.7.1'
+compile group: 'com.liaison', name: 'proletariat', version: '0.7.2'
 ```
 
 ## User Guide
