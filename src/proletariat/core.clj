@@ -575,6 +575,15 @@
     (conj coll x)
     coll))
 
+(spec/fdef acat
+  :args (spec/cat :seq seq?)
+  :ret seq?)
+
+(defn acat
+  "Fully lazy equivalent of `(apply cat ...)`"
+  [s]
+  (lazy-cat (first s) (when-let [n (next s)] (acat n))))
+
 (defn bytes->string
   "Convert a byte array to string."
   [#^bytes byte-array]

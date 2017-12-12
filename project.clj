@@ -1,4 +1,4 @@
-(defproject com.liaison/proletariat "0.7.2"
+(defproject com.liaison/proletariat "0.7.3"
   :description "Library of the Commons. A hard-working library of common utilities."
   :url "https://github.com/LiaisonTechnologies/proletariat"
   :license {:name "Eclipse Public License"
@@ -15,7 +15,7 @@
                  [byte-streams "0.2.4-alpha3"]
                  [commons-codec/commons-codec "1.10"]
                  [im.chit/hara.event "2.5.2"]
-                 [org.clojure/clojure "1.9.0-beta1"]
+                 [org.clojure/clojure "1.9.0"]
                  [org.clojure/test.check "0.9.0"]
                  [org.clojure/tools.logging "0.4.0"]]
 
