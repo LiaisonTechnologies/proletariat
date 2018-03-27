@@ -1,4 +1,5 @@
 (ns proletariat.config
+  "A wrapper around [aero](https://github.com/juxt/aero) for convenience."
   (:require [aero.core :as aero]
             [clojure.string :as string]
             [proletariat.core :as core]
@@ -6,7 +7,9 @@
             [clojure.tools.logging :as log]
             [clojure.java.io :as io]))
 
-(def ^:dynamic *silent* false)
+(def ^{:dynamic true
+       :doc     "If true, silences any errors."}
+  *silent* false)
 
 (defmethod aero/reader 'encrypted
   [_ _ [k data]]
@@ -25,6 +28,8 @@
           (throw e))))))
 
 (defn read-config
+  "Loads the config file at `resource` using `aero/read-config` and applies
+  the `profile`."
   [profile resource]
   (let [file-resource (io/file resource)
         source        (if (.exists file-resource)

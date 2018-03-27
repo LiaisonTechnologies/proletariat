@@ -128,17 +128,17 @@
   the expr should have the name of the input that causes the transition.  For
   example:
 
-    (fsm [:a :b] :first
-         [:b :c] :second)
+      (fsm [:a :b] :first
+           [:b :c] :second)
 
   This will create a new FSM that has 3 states: :a, :b, and :c with 2 state
-  transitions (:a -> :b and :b -> :c).  The inputs that cause the transitions
-  are: :first (for :a -> :b) and :second (for :b -> :c).
+  transitions (`:a -> :b` and `:b -> :c`).  The inputs that cause the transitions
+  are: `:first` (for `:a -> :b`) and `:second` (for `:b -> :c`).
 
   An FSM can be any directed graph and can include cycles.  There is no
   predefined entry point; the application can start wherever it needs.  Exit
   points are any node that does not have any outgoing transitions (in the
-  above example :c is an exit node and will generate :accepted? = true).
+  above example `:c` is an exit node and will generate `:accepted? = true`).
 
   You can visualize your FSM using the `view` function.
   "
@@ -248,25 +248,25 @@
   if no auto-event is defined or if it is not accessed via state transitions.
   The processing will follow this pattern:
 
-    start-state
-         |                     ---------------
-         v                     |  accepted?  |
-    entry-action -> interim -> |   or no     | -no-> auto-event -> exit-action
-         ^                     | auto-event? |     (provides input)     |
-         |                     ---------------                          v
-         |                            |                               output
-         |                           yes                                |
-         |                            |                                 |
-         |                            v                                 |
-         |                   return interim state                       |
-         |                                                              |
-         ----------------------------------------------------------------
+      start-state
+           |                     ---------------
+           v                     |  accepted?  |
+      entry-action -> interim -> |   or no     | -no-> auto-event -> exit-action
+           ^                     | auto-event? |     (provides input)     |
+           |                     ---------------                          v
+           |                            |                               output
+           |                           yes                                |
+           |                            |                                 |
+           |                            v                                 |
+           |                   return interim state                       |
+           |                                                              |
+           ----------------------------------------------------------------
 
   The final FsmOutput will be returned upon termination.
 
-  Optionally, can take a start-value that will be added as the FsmOutput :value
-  upon initialization and will be available to the starting state entry-action
-  function, if defined.
+  Optionally, can take a start-value that will be added as the FsmOutput
+  `:value` upon initialization and will be available to the starting state
+  entry-action function, if defined.
   "
   ([fsm start-state]
     (run fsm start-state nil))

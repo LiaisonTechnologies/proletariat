@@ -34,17 +34,17 @@
 
   Example:
 
-    (defmulti foo (fn [a b] a))
+      (defmulti foo (fn [a b] a))
 
-    (defmethod foo :bar [a b] [a b])
+      (defmethod foo :bar [a b] [a b])
 
-    (foo :bar 1)
-    => [:bar 1]
+      (foo :bar 1)
+      ;;=> [:bar 1]
 
-    (multimock foo
-      [:bar (fn [a b] [a (inc b)])]
-      (foo :bar 1))
-    => [:bar 2]
+      (multimock foo
+        [:bar (fn [a b] [a (inc b)])]
+        (foo :bar 1))
+      ;;=> [:bar 2]
   "
   [multi bindings & body]
   `(let [orig# (methods ~multi)]
