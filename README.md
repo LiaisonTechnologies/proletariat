@@ -1,6 +1,6 @@
 # Proletariat
 
-> [![Build Status](https://travis-ci.org/LiaisonTechnologies/proletariat.svg?branch=master)](https://travis-ci.org/LiaisonTechnologies/proletariat) | [API Docs](https://liaisontechnologies.github.io/proletariat)
+> [![Build Status](https://travis-ci.org/LiaisonTechnologies/proletariat.svg?branch=master)](https://travis-ci.org/LiaisonTechnologies/proletariat) | [API Docs](https://liaisontechnologies.github.io/proletariat/docs)
 
 Library of the Commons.
 
@@ -43,7 +43,7 @@ version of Clojure. Luckily Clojure is really good about being
 backward-compatible, so you shouldn't run into any major issues.
 
 This library is being actively developed with new features and functionality, so
-do check out the [API docs](https://liaisontechnologies.github.io/proletariat)
+do check out the [API docs](https://liaisontechnologies.github.io/proletariat/docs)
 for an overview of what it offers.
 
 If you find any errors or are confused about something, open an issue on GitHub
