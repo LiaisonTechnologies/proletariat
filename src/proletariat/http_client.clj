@@ -182,75 +182,73 @@
    Below is an example annotated configuration with defaults. All settings are
    optional. For the default client, simply call the no-arg arity.
 
-   {;; Map with timeout configurations
-    :timeouts {;; timeout in milliseconds for the pool to generate a
-               ;; connection
-               :pool-timeout         nil
+       {;; Map with timeout configurations
+        :timeouts {;; timeout in milliseconds for the pool to generate a connection
+                   :pool-timeout         nil
 
-               ;; timeout in milliseconds for the connection to become
-               ;; established
-               :connection-timeout   60000
+                   ;; timeout in milliseconds for the connection to become
+                   ;; established
+                   :connection-timeout   60000
 
-               ;; timeout in milliseconds for the arrival of a response
-               ;; over the established connection
-               :request-timeout      60000}
+                   ;; timeout in milliseconds for the arrival of a response
+                   ;; over the established connection
+                   :request-timeout      60000}
 
-    ;; Map with Connection Pool configurations
-    :pool-options {;; the maximum number of simultaneous connections to any
-                   ;; host
-                   :connections-per-host 8
+        ;; Map with Connection Pool configurations
+        :pool-options {;; the maximum number of simultaneous connections to any host
+                       :connections-per-host 8
 
-                   ;; the maximum number of connections across all hosts
-                   :total-connections    1024
+                       ;; the maximum number of connections across all hosts
+                       :total-connections    1024
 
-                   ;; the target utilization of connections per host,
-                   ;; within `[0,1]`
-                   :target-utilization   0.9
+                       ;; the target utilization of connections per host,
+                       ;; within `[0,1]`
+                       :target-utilization   0.9
 
-                   ;; the interval, in milliseconds, between use of the
-                   ;; controller to adjust the size of the pool
-                   :control-period       60000
+                       ;; the interval, in milliseconds, between use of the
+                       ;; controller to adjust the size of the pool
+                       :control-period       60000
 
-                   ;; the maximum number of pending acquires from the pool
-                   ;; that are allowed before `acquire` will start to throw
-                   ;; a `java.util.concurrent.RejectedExecutionException`
-                   :max-queue-size       65536}
+                       ;; the maximum number of pending acquires from the pool
+                       ;; that are allowed before `acquire` will start to throw
+                       ;; a `java.util.concurrent.RejectedExecutionException`
+                       :max-queue-size       65536}
 
-    ;; Map with default options across all connections
-    :connection-options  {;; the amount of the response, in bytes, that is
-                          ;; buffered before the request returns. This does
-                          ;; *not* represent the maximum size response that the
-                          ;; client can handle (which is unbounded), and is
-                          ;; only a means of maximizing performance.
-                          :response-buffer-size 65536
+        ;; Map with default options across all connections
+        :connection-options  {;; the amount of the response, in bytes, that is
+                              ;; buffered before the request returns. This does
+                              ;; *not* represent the maximum size response that the
+                              ;; client can handle (which is unbounded), and is
+                              ;; only a means of maximizing performance.
+                              :response-buffer-size 65536
 
-                          ;; if `true`, attempts to reuse connections for
-                          ;; multiple requests
-                          :keep-alive?          true
+                              ;; if `true`, attempts to reuse connections for
+                              ;; multiple requests
+                              :keep-alive?          true
 
-                          ;; the maximum characters that can be in a single
-                          ;; header entry of a response
-                          :max-header-size      8192
+                              ;; the maximum characters that can be in a single
+                              ;; header entry of a response
+                              :max-header-size      8192
 
-                          ;; the maximum characters that can be in a single
-                          ;; chunk of a streamed response
-                          :max-chunk-size       8192
+                              ;; the maximum characters that can be in a single
+                              ;; chunk of a streamed response
+                              :max-chunk-size       8192
 
-                          ;; If true, will ignore certificates and establish
-                          ;; connection. Should only be used for development
-                          :insecure?       false
+                              ;; If true, will ignore certificates and establish
+                              ;; connection. Should only be used for development
+                              :insecure?       false
 
-                          ;; Path to the JKS Truststore to use for validating
-                          ;; server certificates
-                          :trust-store     \"/path/to/truststore.jks\"
+                              ;; Path to the JKS Truststore to use for validating
+                              ;; server certificates
+                              :trust-store     \"/path/to/truststore.jks\"
 
-                          ;; Truststore password as UTF-8 byte array, char
-                          ;; array, or String. It is recommended to not use a
-                          ;; plain String except in development.
-                          :trust-store-pass [B}}
-    "
+                              ;; Truststore password as UTF-8 byte array, char
+                              ;; array, or String. It is recommended to not use a
+                              ;; plain String except in development.
+                              :trust-store-pass [B}}
+  "
   ([]
-    (create {}))
+   (create {}))
   ([config]
    (let [pool-config (merge {}
                             (:pool-options config)

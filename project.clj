@@ -1,5 +1,5 @@
 (defproject com.liaison/proletariat "0.7.3"
-  :description "Library of the Commons. A hard-working library of common utilities."
+  :description "Library of the Commons. A hard-working library of common utilities. GitHub: https://github.com/LiaisonTechnologies/proletariat"
   :url "https://github.com/LiaisonTechnologies/proletariat"
   :license {:name "Eclipse Public License"
             :url  "http://www.eclipse.org/legal/epl-v10.html"}

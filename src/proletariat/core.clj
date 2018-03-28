@@ -1,5 +1,8 @@
 (ns proletariat.core
-  "Library of the Commons.  A hard-working library of common utilities."
+  "Library of the Commons.  A hard-working library of common utilities.
+
+  - [Homepage](https://liaisontechnologies.github.io/proletariat)
+  - [API Docs](https://liaisontechnologies.github.io/proletariat/docs)"
   (:require [clojure.instant :as instant]
             [clojure.edn :as edn]
             [clojure.spec.alpha :as spec]
@@ -507,8 +510,9 @@
   :ret
   vector?)
 
-(defn zipper-map [f z]
-  "Map `f` over every node of the zipper."
+(defn zipper-map
+  "Map `f` over every node of the zipper `z`."
+  [f z]
   (loop [z z]
     (if (identical? (zip/next z) z)
       (zip/root z)
