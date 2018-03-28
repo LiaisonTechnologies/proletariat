@@ -45,6 +45,6 @@ If you find any errors or are confused about something, open an issue on GitHub 
 
 ## License
 
-Copyright © 2017 Liaison Technologies
+Copyright © 2018 Liaison Technologies
 
 Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
