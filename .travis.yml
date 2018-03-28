@@ -1,0 +1,16 @@
+language: clojure
+jdk:
+- oraclejdk8
+notifications:
+  email: false
+  slack:
+    secure: RNaBSt5U5NuOXZeiqpMnigRlc3s16y4Er8BjYiAlCXxGzSO39nE6P3Q3ephHYlqTupOtujUK2SzDbmd1isIY1En4MdJMdbHrQa0FsUpnbdeG1HhlPZjeqiosD83pAlVIxA/OXpCN359f2sfuF8RolyAm+goZFK7ApWk2wm92mt6hZBfFOH604QvPiigN+QDbZ+c4tf9FwQUyEBb4rW03LbMOh7PF2SDy04Cmjw0RbFkXIiPUgpcUuDKUDUb5r70XtqJPvxOt6q3ZLcK1yrvXGMhTxwcaZbowZ2phNEJU9zkbmsYv48XWnRq9p+hmliTbIWDciT3i391DNbVH2/Pr0oyXWig6rOc91oEFePhtvXJJAL2hTykLYzuqJHVtbVnWxILuKxQsTGrvzjlElHabbo+QoJ2pQXMf8jFEwFGRiHmfJIRpB/dc/rtAMVQzPIWFBLGs1ast8wpYe/KQR127uuHjyWOSSxu1+/rRoEUZerv1sdTo6FTg6e899l2L7mLuww0eajBqnypYZlWqEeuRgYhYoA1Wepr8ZmWp8Ns/+kh5RHL2dvfeAb5aecKRJ+t/wxIAMXmrr+5iU52EB3eO8N6CbJP0dk4kH5kF27m5/My8XlBjmGKoY82GBMUyd2QA4efz3fZijkdsl6kEizJL1BA2QadyabxHhfHIiHO4mjM=
+script:
+- lein test
+- lein codox
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: "$GITHUB_TOKEN"
+  on:
+    branch: master
