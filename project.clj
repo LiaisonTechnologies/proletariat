@@ -2,13 +2,13 @@
   :description "Library of the Commons. A hard-working library of common utilities. GitHub: https://github.com/LiaisonTechnologies/proletariat"
   :url "https://github.com/LiaisonTechnologies/proletariat"
 
-  ;:repositories ^:replace
-  ;[["Clojars"   {:url       "http://nexus.liaison.dev/content/repositories/clojars/"
-  ;               :snapshots true
-  ;               :update    :always}]
-  ; ["Central"   {:url       "http://nexus.liaison.dev/content/repositories/central/"
-  ;               :snapshots true
-  ;               :update    :always}]]
+  :repositories ^:replace
+  [["Clojars"   {:url       "http://nexus.liaison.dev/content/repositories/clojars/"
+                 :snapshots true
+                 :update    :always}]
+   ["Central"   {:url       "http://nexus.liaison.dev/content/repositories/central/"
+                 :snapshots true
+                 :update    :always}]]
 
   :license {:name "Eclipse Public License"
             :url  "http://www.eclipse.org/legal/epl-v10.html"}
@@ -34,7 +34,7 @@
    :metadata    {:doc/format :markdown}
    :source-uri  "https://github.com/LiaisonTechnologies/proletariat/blob/{version}/{filepath}/#L{line}"})
 
-;;; required for http repository
-;(require 'cemerick.pomegranate.aether)
-;(cemerick.pomegranate.aether/register-wagon-factory!
-;  "http" #(org.apache.maven.wagon.providers.http.HttpWagon.))
+;; required for http repository
+(require 'cemerick.pomegranate.aether)
+(cemerick.pomegranate.aether/register-wagon-factory!
+  "http" #(org.apache.maven.wagon.providers.http.HttpWagon.))
