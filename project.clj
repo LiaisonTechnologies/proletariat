@@ -28,11 +28,11 @@
                  [org.clojure/test.check "0.9.0"]
                  [org.clojure/tools.logging "0.4.0"]]
 
-  :plugins [[lein-codox "0.10.3" :exclusions [org.clojure/clojure]]]
-  :codox
-  {:output-path "docs"
-   :metadata    {:doc/format :markdown}
-   :source-uri  "https://github.com/LiaisonTechnologies/proletariat/blob/{version}/{filepath}/#L{line}"})
+  ;:plugins [[lein-codox "0.10.3" :exclusions [org.clojure/clojure]]]
+  ;:codox
+  ;{:output-path "docs"
+  ; :metadata    {:doc/format :markdown}
+  ; :source-uri  "https://github.com/LiaisonTechnologies/proletariat/blob/{version}/{filepath}/#L{line}"})
 
 ;; required for http repository
 (require 'cemerick.pomegranate.aether)
