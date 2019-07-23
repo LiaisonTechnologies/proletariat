@@ -26,7 +26,7 @@
                  [im.chit/hara.event "2.5.10"]
                  [org.clojure/clojure "1.9.0"]
                  [org.clojure/test.check "0.9.0"]
-                 [org.clojure/tools.logging "0.4.0"]]
+                 [org.clojure/tools.logging "0.4.0"]])
 
   ;:plugins [[lein-codox "0.10.3" :exclusions [org.clojure/clojure]]]
   ;:codox
