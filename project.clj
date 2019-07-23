@@ -2,13 +2,13 @@
   :description "Library of the Commons. A hard-working library of common utilities. GitHub: https://github.com/LiaisonTechnologies/proletariat"
   :url "https://github.com/LiaisonTechnologies/proletariat"
 
-  :repositories ^:replace
-  [["Clojars"   {:url       "http://nexus.liaison.dev/content/repositories/clojars/"
-                 :snapshots true
-                 :update    :always}]
-   ["Central"   {:url       "http://nexus.liaison.dev/content/repositories/central/"
-                 :snapshots true
-                 :update    :always}]]
+  ;:repositories ^:replace
+  ;[["Clojars"   {:url       "http://nexus.liaison.dev/content/repositories/clojars/"
+  ;               :snapshots true
+  ;               :update    :always}]
+  ; ["Central"   {:url       "http://nexus.liaison.dev/content/repositories/central/"
+  ;               :snapshots true
+  ;               :update    :always}]]
 
   :license {:name "Eclipse Public License"
             :url  "http://www.eclipse.org/legal/epl-v10.html"}
@@ -26,15 +26,15 @@
                  [im.chit/hara.event "2.5.10"]
                  [org.clojure/clojure "1.9.0"]
                  [org.clojure/test.check "0.9.0"]
-                 [org.clojure/tools.logging "0.4.0"]])
+                 [org.clojure/tools.logging "0.4.0"]]
 
-  ;:plugins [[lein-codox "0.10.3" :exclusions [org.clojure/clojure]]]
-  ;:codox
-  ;{:output-path "docs"
-  ; :metadata    {:doc/format :markdown}
-  ; :source-uri  "https://github.com/LiaisonTechnologies/proletariat/blob/{version}/{filepath}/#L{line}"})
+  :plugins [[lein-codox "0.10.3"]]
+  :codox
+  {:output-path "docs"
+   :metadata    {:doc/format :markdown}
+   :source-uri  "https://github.com/LiaisonTechnologies/proletariat/blob/{version}/{filepath}/#L{line}"})
 
-;; required for http repository
-(require 'cemerick.pomegranate.aether)
-(cemerick.pomegranate.aether/register-wagon-factory!
-  "http" #(org.apache.maven.wagon.providers.http.HttpWagon.))
+;;; required for http repository
+;(require 'cemerick.pomegranate.aether)
+;(cemerick.pomegranate.aether/register-wagon-factory!
+;  "http" #(org.apache.maven.wagon.providers.http.HttpWagon.))
