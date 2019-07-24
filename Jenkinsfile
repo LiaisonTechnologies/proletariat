@@ -93,7 +93,7 @@ timestamps {
 
                         sh "./apache-maven-3.5.0/bin/mvn -q --settings ${MAVEN_SETTINGS} deploy:deploy-file -Durl=${nexus_url} -DrepositoryId=dm-releases -DpomFile=pom.xml -Dfile=target/proletariat-${env.VERSION}.jar -Dfiles=target/proletariat-${env.VERSION}-standalone.jar -Dclassifiers=standalone -Dtypes=jar"
 
-                        def releaseNotes = utils.runSh("awk '/## \\[${env.RELEASE_VERSION}\\]/{flag=1;next}/## \\[/{flag=0}flag' CHANGELOG.md")
+                        def releaseNotes = utils.runSh("awk '/## \\[${env.VERSION}\\]/{flag=1;next}/## \\[/{flag=0}flag' CHANGELOG.md")
                         utils.createGithubRelease("proletariat", env.GIT_COMMIT, env.VERSION, releaseNotes)
                     }
                     milestone()
