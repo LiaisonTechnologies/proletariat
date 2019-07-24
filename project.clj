@@ -1,4 +1,4 @@
-(defproject com.liaison/proletariat "0.7.4"
+(defproject com.liaison/proletariat "0.7.5"
   :description "Library of the Commons. A hard-working library of common utilities. GitHub: https://github.com/LiaisonTechnologies/proletariat"
   :url "https://github.com/LiaisonTechnologies/proletariat"
 
@@ -20,7 +20,8 @@
                  [org.clojure/test.check "0.9.0"]
                  [org.clojure/tools.logging "0.4.0"]]
 
-  :plugins [[lein-codox "0.10.3"]]
+  :plugins [[lein-set-version "0.4.1"]
+            [lein-codox "0.10.3"]]
   :codox
   {:output-path "docs"
    :metadata    {:doc/format :markdown}
